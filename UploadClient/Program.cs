@@ -22,6 +22,8 @@ namespace UploadClient
                 httpWebRequest.Headers["X-FileName"] = Path.GetFileName(path);
                 var fileStream = new FileStream(path, FileMode.Open);
 
+                Console.WriteLine("Preparing file upload for {0}", requestUriString);
+
                 if (args.Any(a => a.Trim().StartsWith("--chunked", StringComparison.OrdinalIgnoreCase)))
                 {
                     Console.WriteLine("Posting {0} bytes chunked", fileStream.Length);
