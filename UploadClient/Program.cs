@@ -33,7 +33,7 @@ namespace UploadClient
                     httpWebRequest.ContentLength = fileStream.Length;
                 }
 
-                Console.WriteLine("Preparing input data");
+                Console.WriteLine("Copying input data to stream");
                 using (Stream requestStream = httpWebRequest.GetRequestStream())
                 {
                     fileStream.CopyTo(requestStream);
