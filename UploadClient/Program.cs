@@ -37,9 +37,10 @@ namespace UploadClient
                 }
 
                 Console.WriteLine("Copying input data to stream");
+                int bufferSize = 1048576;
                 using (Stream requestStream = httpWebRequest.GetRequestStream())
                 {
-                    fileStream.CopyTo(requestStream);
+                    fileStream.CopyTo(requestStream, bufferSize);
                 }
 
                 Console.WriteLine("Getting response");
