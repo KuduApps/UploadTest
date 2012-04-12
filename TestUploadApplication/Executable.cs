@@ -68,7 +68,7 @@ namespace Kudu.Core.Infrastructure
             Func<StreamReader, string> reader = (StreamReader streamReader) => streamReader.ReadToEnd();
             Action<Stream, Stream, bool> copyStream = (Stream from, Stream to, bool closeAfterCopy) =>
             {
-                from.CopyTo(to, 32768);
+                from.CopyTo(to);
                 if (closeAfterCopy)
                 {
                     to.Close();
