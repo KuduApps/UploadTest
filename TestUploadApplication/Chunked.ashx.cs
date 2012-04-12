@@ -13,13 +13,13 @@ namespace TestUploadApplication
 
         public void ProcessRequest(HttpContext context)
         {
-            string rawChunkSize = context.Request["size"];
+            string rawChunkSize = context.Request.QueryString["size"];
             int chunkSize = rawChunkSize != null ? Int32.Parse(rawChunkSize) : 4096;
             var sw = Stopwatch.StartNew();
             var ms = new MemoryStream();
             context.Request.InputStream.CopyTo(ms, chunkSize);
             sw.Stop();
-            context.Response.Write("Copied " + ms.Length + " bytes in " + sw.Elapsed.TotalSeconds + "s");
+            context.Response.Write("Copied " + ms.Length + " bytes in " + sw.Elapsed.TotalSeconds + "s using chunk size " + chunkSize);
         }
 
         public bool IsReusable
