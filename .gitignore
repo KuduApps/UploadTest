@@ -1,0 +1,12 @@
+[Oo]bj/
+[Bb]in/
+*.user
+*.suo
+*.cache
+*.csproj.user
+*[Rr]e[Ss]harper.user
+_ReSharper.*/
+packages/*
+artifacts/*
+msbuild.log
+*.ncrunchsolution
