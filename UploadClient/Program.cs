@@ -18,6 +18,7 @@ namespace UploadClient
                 string requestUriString = args[0];
                 string path = Path.GetFullPath(args[1]);
                 var httpWebRequest = (HttpWebRequest)WebRequest.Create(requestUriString);
+                httpWebRequest.Timeout = Int32.MaxValue;
                 httpWebRequest.Method = "POST";
                 httpWebRequest.Headers["X-FileName"] = Path.GetFileName(path);
                 var fileStream = new FileStream(path, FileMode.Open);
