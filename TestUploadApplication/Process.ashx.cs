@@ -12,11 +12,13 @@ namespace TestUploadApplication
     {
         public void ProcessRequest(HttpContext context)
         {
+            bool bufferless = context.Request.QueryString["bufferless"] != null;
             string path = Path.Combine(HttpRuntime.AppDomainAppPath, "External", "ExternalProcess.exe");
             var exe = new Executable(path, HttpRuntime.AppDomainAppPath);
 
             var sw = Stopwatch.StartNew();
-            exe.Execute(context.Request.InputStream, context.Response.OutputStream, "");
+            var stream = bufferless ? context.Request.GetBufferlessInputStream() : context.Request.InputStream;
+            exe.Execute(stream, context.Response.OutputStream, "");
             sw.Stop();
 
             context.Response.Write("Overall time " + sw.Elapsed.TotalSeconds + "s");
