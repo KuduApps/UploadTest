@@ -13,7 +13,7 @@ namespace ExternalProcess
             var sw = Stopwatch.StartNew();
             input.CopyTo(ms);
             sw.Stop();
-            Console.WriteLine("Copied " + ms.Length + " bytes in " + sw.Elapsed.TotalSeconds);
+            Console.WriteLine("EXE: Copied " + ms.Length + " bytes in " + sw.Elapsed.TotalSeconds);
         }
     }
 }
