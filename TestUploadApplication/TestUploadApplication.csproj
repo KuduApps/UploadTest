@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="External\ExternalProcess.exe" />
+    <Content Include="StandardHtmlUpload.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -79,6 +80,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Raw.ashx.cs">
       <DependentUpon>Raw.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="StandardHtmlUpload.aspx.cs">
+      <DependentUpon>StandardHtmlUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StandardHtmlUpload.aspx.designer.cs">
+      <DependentUpon>StandardHtmlUpload.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
